@@ -1,2 +1,2 @@
 build:
-	elm-make --warn --output Eatit.js Eatit.elm
+	elm-make --yes --warn --output Eatit.js Eatit.elm
