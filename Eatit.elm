@@ -16,4 +16,5 @@ upsert key value dict =
             Just something ->
                 -- Using ++ is fine.
                 -- insert key (something ++ [value]) dict
-                insert key (something :: value) dict
+                -- insert key (something :: value) dict
+                insert key (value :: something) dict
