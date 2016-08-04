@@ -1,39 +1,10 @@
-module Lib.List exposing (groupBy)
+module Lib.List exposing (..)
 
 import Dict exposing (..)
 
 
-groupBy : (a -> comparable) -> List a -> List (List a)
-groupBy fn list =
-    let
-        indexed =
-            List.map (\x -> ( fn x, x ))
-                list
-
-        dict =
-            List.foldr upsert empty indexed
-
-        _ =
-            Debug.log
-                "list:"
-            <|
-                values
-                    dict
-    in
-        values dict
-
-
-upsert : ( comparable, v ) -> Dict comparable (List v) -> Dict comparable (List v)
-upsert tuple dict =
-    let
-        ( k, v ) =
-            tuple
-    in
-        upsert' k v dict
-
-
-upsert' : comparable -> v -> Dict comparable (List v) -> Dict comparable (List v)
-upsert' key value dict =
+upsert : comparable -> v -> Dict comparable (List v) -> Dict comparable (List v)
+upsert key value dict =
     let
         dval =
             get key dict
